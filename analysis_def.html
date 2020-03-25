@@ -14574,13 +14574,112 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">temp_1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;srank&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;log_FDR&#39;</span><span class="p">,</span> <span class="c1">#color=&quot;log_FDR&quot;,</span>
+                 <span class="n">title</span><span class="o">=</span><span class="s1">&#39;PIGA interacting partners&#39;</span><span class="p">,</span>
+                 <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+                 <span class="n">hover_name</span><span class="o">=</span><span class="s2">&quot;Gene_id&quot;</span><span class="p">,</span> <span class="n">hover_data</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;desc2&quot;</span><span class="p">],</span>
+                 <span class="c1">#color_continuous_scale=&#39;Bluered&#39;,#px.colors.sequential.Viridis,</span>
+                <span class="p">)</span>
+
+<span class="c1">#fig.show()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s2">&quot;PIGA.html&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;PIGA.html&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<iframe
+    width="800"
+    height="600"
+    src="PIGA.html"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp_1</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Dataset.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html_toc analysis_def.ipynb
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[NbConvertApp] Converting notebook analysis_def.ipynb to html_toc
+[NbConvertApp] Support files will be in analysis_def_files/
+[NbConvertApp] Making directory analysis_def_files
+[NbConvertApp] Making directory analysis_def_files
+[NbConvertApp] Making directory analysis_def_files
+[NbConvertApp] Writing 343723 bytes to analysis_def.html
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
