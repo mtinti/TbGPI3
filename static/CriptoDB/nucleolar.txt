@@ -1,0 +1,22 @@
+Gene ID	source_id	Organism	Genomic Location (Gene)	Product Description	Found in	Score	
+cgd1_2690	cgd1_2690-RA	C. parvum Iowa II	CM000429:589,981..590,184(-)	LSM domain containing protein	GOTerms	1	
+cgd1_360	cgd1_360-RA	C. parvum Iowa II	CM000429:81,290..83,800(-)	Nucleolar complex protein 2	Product	1	
+cgd1_530	cgd1_530-RA	C. parvum Iowa II	CM000429:112,972..113,558(+)	H/ACA ribonucleoprotein complex subunit Nop10	InterPro	1	
+cgd1_610	cgd1_610-RA	C. parvum Iowa II	CM000429:143,466..144,229(+)	U3 small nucleolar RNA-associated protein 11	Product, InterPro	2	
+cgd2_1540	cgd2_1540-RA	C. parvum Iowa II	CM000430:328,628..329,083(+)	Cell growth-regulating nucleolar protein with metal binding domain	Product	1	
+cgd2_160	cgd2_160-RA	C. parvum Iowa II	CM000430:44,252..45,633(-)	IMP4-like U3 small nucleolar ribonucleoprotein (SnoRNP)	Product	1	
+cgd2_2170	cgd2_2170-RA	C. parvum Iowa II	CM000430:440,871..442,559(-)	Nucleolar GTP-binding protein 2	Product	1	
+cgd2_50	cgd2_50-RA	C. parvum Iowa II	CM000430:10,256..11,755(-)	SIK1 nucleolar protein Nop56	Product	1	
+cgd3_3500	cgd3_3500-RA	C. parvum Iowa II	CM000431:879,363..880,412(+)	Nop12p nucleolar protein with RRM domain	Product	1	
+cgd4_1020	cgd4_1020-RA	C. parvum Iowa II	CM000432:275,725..278,476(+)	Nucleolar pre-ribosomal-associated protein 1 C-terminal domain containing protein	Product, InterPro	2	
+cgd4_1700	cgd4_1700-RA	C. parvum Iowa II	CM000432:427,863..430,303(-)	Nucleolar GTP-binding protein 1	Product, InterPro	2	
+cgd4_1990	cgd4_1990-RA	C. parvum Iowa II	CM000432:484,551..486,072(-)	Nucleolar, Nop52	InterPro, Product	2	
+cgd4_3320	cgd4_3320-RA	C. parvum Iowa II	CM000432:778,505..780,992(-)	Nucleolar complex-associated protein 3	Product, InterPro	2	
+cgd7_2040	cgd7_2040-RA	C. parvum Iowa II	CM000435:505,894..506,311(+)	Sm-like protein Lsm6/SmF	GOTerms	1	
+cgd7_250	cgd7_250-RA	C. parvum Iowa II	CM000435:56,707..58,965(-)	Digestive organ expansion factor	InterPro	1	
+cgd7_3590	cgd7_3590-RA	C. parvum Iowa II	CM000435:807,892..809,547(+)	Mpp10 family of U3 processosome protein	GOTerms	1	
+cgd8_1100	cgd8_1100-RA	C. parvum Iowa II	CM000436:295,052..298,957(+)	NRAP like nucleolar RNA associated protein	Product	1	
+cgd8_3380	cgd8_3380-RA	C. parvum Iowa II	CM000436:864,526..868,545(-)	Rrp12p like nucleolar protein	Product	1	
+cgd8_3703	cgd8_3703-RA	C. parvum Iowa II	CM000436:939,191..939,909(-)	Nucleolar protein 12	InterPro, Product	2	
+cgd8_4370	cgd8_4370-RA	C. parvum Iowa II	CM000436:1,079,192..1,082,194(+)	Nucleolar protein 14	Product	1	
+cgd8_900	cgd8_900-RA	C. parvum Iowa II	CM000436:247,061..249,973(+)	U3 small nucleolar RNA-associated protein 6	InterPro, Product	2

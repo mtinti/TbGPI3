@@ -1,0 +1,40 @@
+Gene ID	source_id	Organism	Genomic Location (Gene)	Product Description	Found in	Score	
+cgd1_1930	cgd1_1930-RA	C. parvum Iowa II	CM000429:452,503..454,030(+)	Histone-binding protein RBBP4/WD40 repeat containing protein	Product, InterPro	2	
+cgd2_1670	cgd2_1670-RA	C. parvum Iowa II	CM000430:349,213..349,566(+)	ING1 ike protein with an N-terminal globular domain and a PHD domain	InterPro	1	
+cgd2_1680	cgd2_1680-RA	C. parvum Iowa II	CM000430:349,761..350,836(+)	Inhibitor of growth protein N-terminal histone-binding domain containing protein	Product, InterPro	2	
+cgd2_1910	cgd2_1910-RA	C. parvum Iowa II	CM000430:390,431..392,035(+)	MORN repeat	InterPro	1	
+cgd3_2540	cgd3_2540-RA	C. parvum Iowa II	CM000431:650,605..651,012(-)	Histone H3	InterPro, Product	2	
+cgd3_4060	cgd3_4060-RA	C. parvum Iowa II	CM000431:1,000,231..1,004,184(+)	Histone transcription regulator (HIR1)-like WD40 repeat containing protein	Product	1	
+cgd3_4310	cgd3_4310-RA	C. parvum Iowa II	CM000431:1,086,170..1,088,425(-)	Sexual stage-specific protein kinase	InterPro	1	
+cgd4_120	cgd4_120-RA	C. parvum Iowa II	CM000432:27,620..29,347(+)	Histone-binding protein RBBP4 N-terminal domain containing protein	Product, InterPro	2	
+cgd4_1720	cgd4_1720-RA	C. parvum Iowa II	CM000432:435,732..436,985(+)	Histone-like transcription factor (CBF/NF-Y) and archaeal histone	Product, InterPro	2	
+cgd4_2030	cgd4_2030-RA	C. parvum Iowa II	CM000432:492,786..493,415(-)	 Centromeric histone h3-like protein	Product, InterPro	2	
+cgd4_310	cgd4_310-RA	C. parvum Iowa II	CM000432:80,208..81,236(-)	Transcriptional activator NFYC/HAP5 subunit	InterPro	1	
+cgd4_3220	cgd4_3220-RA	C. parvum Iowa II	CM000432:755,495..756,899(-)	Histone H3	InterPro, Product	2	
+cgd4_3360	cgd4_3360-RA	C. parvum Iowa II	CM000432:790,625..792,307(+)	Histone-binding protein RBBP4 N-terminal domain/WD40 repeat	Product, InterPro	2	
+cgd4_760	cgd4_760-RA	C. parvum Iowa II	CM000432:205,052..206,001(-)	Histone chaperone ASF1-like protein	Product, GOTerms, InterPro	3	
+cgd5_1640	cgd5_1640-RA	C. parvum Iowa II	CM000433:355,319..356,248(-)	MORN repeat containing protein	InterPro	1	
+cgd5_3170	cgd5_3170-RA	C. parvum Iowa II	CM000433:738,180..738,638(+)	Histone H2B	Product, InterPro	2	
+cgd5_400	cgd5_400-RA	C. parvum Iowa II	CM000433:103,870..106,923(+)	Histone-lysine N-methyltransferase	GOTerms, Product	2	
+cgd5_740	cgd5_740-RA	C. parvum Iowa II	CM000433:181,128..182,540(-)	WD40-repeat-containing protein	InterPro	1	
+cgd5_940	cgd5_940-RA	C. parvum Iowa II	CM000433:229,927..230,385(-)	Histone H2A	Product, InterPro	2	
+cgd6_1380	cgd6_1380-RA	C. parvum Iowa II	CM000434:330,921..332,243(+)	Histone deacetylase	GOTerms, InterPro, Product	3	
+cgd6_1470	cgd6_1470-RA	C. parvum Iowa II	CM000434:350,153..352,792(-)	SET/Zinc finger, RING/FYVE/PHD-type domain containing protein	GOTerms	1	
+cgd6_1540	cgd6_1540-RA	C. parvum Iowa II	CM000434:363,895..365,013(-)	Histone RNA hairpin-binding protein	Product, InterPro	2	
+cgd6_1550	cgd6_1550-RA	C. parvum Iowa II	CM000434:365,386..365,967(-)	Chromatin modification-related protein Eaf6	InterPro, GOTerms	2	
+cgd6_2570	cgd6_2570-RA	C. parvum Iowa II	CM000434:597,597..598,694(-)	MORN domain repeat containing protein	InterPro	1	
+cgd6_2590	cgd6_2590-RA	C. parvum Iowa II	CM000434:602,368..604,026(-)	Histone acetyltransferase	Product, InterPro, GOTerms	3	
+cgd6_80	cgd6_80-RA	C. parvum Iowa II	CM000434:24,270..25,652(-)	Histone deacetylase	Product, GOTerms, InterPro	3	
+cgd7_1700	cgd7_1700-RA	C. parvum Iowa II	CM000435:429,622..430,498(-)	Histone H2B	Product, InterPro	2	
+cgd7_1930	cgd7_1930-RA	C. parvum Iowa II	CM000435:484,390..487,716(-)	Creatinase/Aminopeptidase P/Spt16/cdc68p/PH-like domain-containing protein	InterPro	1	
+cgd7_2880	cgd7_2880-RA	C. parvum Iowa II	CM000435:686,315..686,761(+)	Transcription initiation factor TFIID subunit 12	InterPro	1	
+cgd7_3230	cgd7_3230-RA	C. parvum Iowa II	CM000435:748,341..749,054(-)	SLBP family of RNA binding proteins	InterPro	1	
+cgd7_3500	cgd7_3500-RA	C. parvum Iowa II	CM000435:792,775..793,581(-)	Leo1-like protein	GOTerms	1	
+cgd7_5280	cgd7_5280-RA	C. parvum Iowa II	CM000435:1,214,772..1,216,545(-)	PH1/SSRP1-like domain containing protein	InterPro	1	
+cgd7_60	cgd7_60-RA	C. parvum Iowa II	CM000435:24,835..26,389(-)	Hat1-like acetyltransferase	InterPro	1	
+cgd8_130	cgd8_130-RA	C. parvum Iowa II	CM000436:32,231..34,037(-)	Vps72/YL1	GOTerms	1	
+cgd8_2170	cgd8_2170-RA	C. parvum Iowa II	CM000436:584,485..585,286(-)	Histone H2A	InterPro, Product	2	
+cgd8_2430	cgd8_2430-RA	C. parvum Iowa II	CM000436:643,820..645,799(+)	Serine/Threonine protein kinase	InterPro	1	
+cgd8_250	cgd8_250-RA	C. parvum Iowa II	CM000436:67,183..68,895(-)	Histone acetyltransferase	InterPro, GOTerms, Product	3	
+cgd8_480	cgd8_480-RA	C. parvum Iowa II	CM000436:113,025..116,073(+)	Histone deacetylase	InterPro, Product	2	
+cgd8_5230	cgd8_5230-RA	C. parvum Iowa II	CM000436:1,298,598..1,299,302(-)	Histone H4	Product, InterPro	2	
