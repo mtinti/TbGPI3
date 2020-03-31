@@ -2,9 +2,13 @@
 # TbPIGA
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mtinti/PIG-A/master?filepath=analysis_def.ipynb)
 
-## Identification of the TbPIGA Interacting Partners 
-### Zhe Ji, Michele Tinti and Michael A.J. Ferguson
+# Identification of the TbPIGA Interacting Partners 
 
-Wellcome Centre for Anti-Infectives Research
-School of Life Sciences, University of Dundee
+## Affiliation
+    Zhe Ji, Michele Tinti and Michael A.J. Ferguson
 
+    Wellcome Centre for Anti-Infectives Research
+    School of Life Sciences, University of Dundee
+
+
+![mainFig](https://github.com/mtinti/TriTrypML_code/blob/master/static/ANTI-INFECTIVES-RGB_200pc.png)
