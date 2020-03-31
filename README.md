@@ -1,4 +1,4 @@
-![title](https://github.com/mtinti/TriTrypML_code/blob/master/static/ANTI-INFECTIVES-RGB_200pc.png)
+![title](https://github.com/mtinti/PIG-A/blob/master/static/wcar.png)
 # TbPIGA
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mtinti/PIG-A/master?filepath=analysis_def.ipynb)
 
@@ -10,3 +10,4 @@
     Wellcome Centre for Anti-Infectives Research
     School of Life Sciences, University of Dundee
     
+![title](https://github.com/mtinti/PIG-A/blob/master/Fig2.png)
