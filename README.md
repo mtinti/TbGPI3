@@ -9,6 +9,4 @@
 
     Wellcome Centre for Anti-Infectives Research
     School of Life Sciences, University of Dundee
-
-
-![mainFig](https://github.com/mtinti/TriTrypML_code/blob/master/static/ANTI-INFECTIVES-RGB_200pc.png)
+    
