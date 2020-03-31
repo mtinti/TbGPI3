@@ -2,7 +2,7 @@
 # TbPIGA
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mtinti/PIG-A/master?filepath=analysis_def.ipynb)
 
-# Identification of the TbPIGA Interacting Partners 
+# Identification of TbPIGA Interacting Partners 
 
 ## Affiliation
     Zhe Ji, Michele Tinti and Michael A.J. Ferguson
