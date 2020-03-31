@@ -13169,10 +13169,190 @@ School of Life Sciences, University of Dundee</code></pre>
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#list(df.columns)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">KnownComponents</span><span class="o">=</span><span class="p">{</span>
+<span class="s1">&#39;Tb11.v5.0765&#39;</span><span class="p">:</span> <span class="s1">&#39;TbPIGA&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Tb927.5.3680&#39;</span><span class="p">:</span> <span class="s1">&#39;TbPIGH&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Tb927.10.10110&#39;</span><span class="p">:</span> <span class="s1">&#39;TbPIGP&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Tb927.10.6140&#39;</span><span class="p">:</span> <span class="s1">&#39;TbPIGC&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Tb927.3.4570&#39;</span><span class="p">:</span> <span class="s1">&#39;TbPIGQ&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Tb927.4.780&#39;</span><span class="p">:</span> <span class="s1">&#39;TbPIGY&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Tb927.10.4610&#39;</span><span class="p">:</span> <span class="s1">&#39;TbDPM1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Tb927.9.6440&#39;</span><span class="p">:</span> <span class="s1">&#39;TbDPM2&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Tb927.3.2480&#39;</span><span class="p">:</span><span class="s1">&#39;TbArv1&#39;</span><span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#PTUT.make_vulcano??</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">TXT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;RUN_1&#39;</span><span class="p">,</span> <span class="s1">&#39;combined&#39;</span><span class="p">,</span> <span class="s1">&#39;txt&#39;</span><span class="p">)</span>
 <span class="c1">#TXT_PATH=&#39;&#39;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TXT_PATH</span><span class="p">,</span> <span class="s1">&#39;proteinGroups.txt&#39;</span><span class="p">),</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="c1">#df = pd.read_csv(&#39;proteinGroups.txt&#39;,sep=&#39;\t&#39;)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">PTUT</span><span class="o">.</span><span class="n">clean_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">unique_pep_threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">PTUT</span><span class="o">.</span><span class="n">mod_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;desc2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">KnownComponents</span><span class="p">[</span><span class="n">g</span><span class="p">]</span> <span class="k">if</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">KnownComponents</span>
+               <span class="k">else</span> <span class="n">d</span>  <span class="k">for</span> <span class="n">g</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;desc&#39;</span><span class="p">])]</span>
+
+<span class="c1">#tag = &#39;LFQ intensity&#39;</span>
+<span class="c1">#tag = &#39;iBAQ&#39;</span>
+<span class="c1">#tag=&#39;Intensity&#39;</span>
+<span class="n">tag</span><span class="o">=</span><span class="s1">&#39;MS/MS count&#39;</span>
+<span class="n">bait_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">tag</span><span class="o">+</span><span class="s1">&#39; Bait_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1">#df = df[df[bait_cols].isna().sum(axis=1)==0]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">control_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">tag</span><span class="o">+</span><span class="s1">&#39; Control_&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+<span class="c1">#df = df[df[bait_cols].isna().sum(axis=1)==0] </span>
+
+<span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+
+<span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">bait_cols</span><span class="o">+</span><span class="n">control_cols</span><span class="p">:</span>
+    <span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span><span class="o">=</span><span class="n">PTUT</span><span class="o">.</span><span class="n">impute</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+
+ 
+    
+<span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">+</span><span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">+</span><span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;FC&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">/</span>
+                 <span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;SumMSMS&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">bait_cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">+</span>
+                 <span class="n">df</span><span class="p">[</span><span class="n">control_cols</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ids</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Gene_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">KnownComponents</span><span class="o">.</span><span class="n">keys</span><span class="p">())]</span>
+<span class="n">_ids</span> <span class="o">=</span> <span class="n">ids</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+<span class="n">_names</span> <span class="o">=</span> <span class="n">ids</span><span class="o">.</span><span class="n">desc2</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_ids</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_names</span><span class="p">))</span>
+<span class="n">PTUT</span><span class="o">.</span><span class="n">make_vulcano</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> 
+                       <span class="n">x</span><span class="o">=</span><span class="s1">&#39;SumMSMS&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;FC&#39;</span><span class="p">,</span> 
+             <span class="n">annot_index</span><span class="o">=</span><span class="n">_ids</span><span class="p">,</span>
+             <span class="n">annot_names</span> <span class="o">=</span> <span class="n">_names</span><span class="p">,</span>
+             <span class="n">title</span><span class="o">=</span><span class="s1">&#39;MA&#39;</span><span class="p">,</span>
+              <span class="n">fc_col</span> <span class="o">=</span> <span class="s1">&#39;log2FC&#39;</span><span class="p">,</span>
+                <span class="n">fc_limit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">point_size_selection</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">point_size_all</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                  <span class="n">text_size</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+                  <span class="n">alpha_main</span><span class="o">=</span><span class="mf">0.1</span>
+                  
+            <span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>starting from: (3920, 108)
+removed  101 Protein Groups by: Only identified by site
+tot  101  entries removed
+---------------
+removed  37 Protein Groups by: Reverse
+tot  138  entries removed
+---------------
+removed  68 Protein Groups by: Potential contaminant
+tot  206  entries removed
+---------------
+Peptide counts (unique)
+nothing removed
+---------------
+(3714, 112)
+(3714, 112)
+9
+9
+no selection
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>No handles with labels found to put in legend.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="analysis_def_files/analysis_def_8_2.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">TXT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;RUN_1&#39;</span><span class="p">,</span> <span class="s1">&#39;combined&#39;</span><span class="p">,</span> <span class="s1">&#39;txt&#39;</span><span class="p">)</span>
+<span class="c1">#TXT_PATH=&#39;&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TXT_PATH</span><span class="p">,</span> <span class="s1">&#39;proteinGroups.txt&#39;</span><span class="p">),</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">PTUT</span><span class="o">.</span><span class="n">clean_df</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">unique_pep_threshold</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">PTUT</span><span class="o">.</span><span class="n">mod_df</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -13216,7 +13396,7 @@ tot  876  entries removed
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -13397,10 +13577,50 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ml_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;final_df.csv.gz&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">aboundance_df</span> <span class="o">=</span> <span class="n">ml_df</span><span class="p">[[</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">,</span><span class="s1">&#39;Abundance_BSF_pro&#39;</span><span class="p">]]</span>
+<span class="n">aboundance_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">aboundance_df</span><span class="p">[</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">aboundance_df</span><span class="p">[</span><span class="s1">&#39;Abundance_BSF_pro&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">aboundance_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="k">del</span> <span class="n">ml_df</span>
+<span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">aboundance_df</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span><span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13410,7 +13630,7 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">KnownComponents</span><span class="o">=</span><span class="p">{</span>
@@ -13431,10 +13651,11 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;desc2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">KnownComponents</span><span class="p">[</span><span class="n">g</span><span class="p">]</span> <span class="k">if</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">KnownComponents</span> <span class="k">else</span> <span class="n">d</span>  <span class="k">for</span> <span class="n">g</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;desc&#39;</span><span class="p">])]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;desc2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">KnownComponents</span><span class="p">[</span><span class="n">g</span><span class="p">]</span> <span class="k">if</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">KnownComponents</span> <span class="k">else</span> <span class="n">d</span> 
+               <span class="k">for</span> <span class="n">g</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;desc&#39;</span><span class="p">])]</span>
 </pre></div>
 
     </div>
@@ -13444,10 +13665,10 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span><span class="s1">&#39;desc2&#39;</span><span class="p">,</span><span class="s1">&#39;Peptide counts (razor+unique)&#39;</span><span class="p">,</span><span class="s1">&#39;Score&#39;</span><span class="p">,</span><span class="s1">&#39;Q-value&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span><span class="s1">&#39;desc2&#39;</span><span class="p">,</span><span class="s1">&#39;Peptide counts (razor+unique)&#39;</span><span class="p">,</span><span class="s1">&#39;Score&#39;</span><span class="p">,</span><span class="s1">&#39;Q-value&#39;</span><span class="p">,</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">]</span>
 <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">KnownComponents</span><span class="o">.</span><span class="n">keys</span><span class="p">())][</span><span class="n">cols</span><span class="p">]</span>
 </pre></div>
 
@@ -13461,7 +13682,7 @@ tot  876  entries removed
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -13489,64 +13710,72 @@ tot  876  entries removed
       <th>Peptide counts (razor+unique)</th>
       <th>Score</th>
       <th>Q-value</th>
+      <th>BSF_rank</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>236</th>
+      <th>56</th>
       <td>Tb927.10.6140</td>
       <td>TbPIGC</td>
       <td>7;7</td>
       <td>99.5080</td>
       <td>0.0</td>
+      <td>6796.5</td>
     </tr>
     <tr>
-      <th>360</th>
+      <th>145</th>
       <td>Tb11.v5.0765</td>
       <td>TbPIGA</td>
       <td>30;30</td>
       <td>266.3000</td>
       <td>0.0</td>
+      <td>6473.5</td>
     </tr>
     <tr>
-      <th>506</th>
+      <th>263</th>
       <td>Tb927.10.10110</td>
       <td>TbPIGP</td>
       <td>5</td>
       <td>137.2400</td>
       <td>0.0</td>
+      <td>6184.0</td>
     </tr>
     <tr>
-      <th>922</th>
+      <th>604</th>
       <td>Tb927.10.4610</td>
       <td>DPM1</td>
       <td>14</td>
       <td>35.5300</td>
       <td>0.0</td>
+      <td>1196.0</td>
     </tr>
     <tr>
-      <th>2229</th>
+      <th>1688</th>
       <td>Tb927.3.4570</td>
       <td>TbPIGQ</td>
       <td>22</td>
       <td>207.7200</td>
       <td>0.0</td>
+      <td>5284.0</td>
     </tr>
     <tr>
-      <th>2523</th>
+      <th>1911</th>
       <td>Tb927.4.780</td>
       <td>TbPIGY</td>
       <td>2</td>
       <td>4.0123</td>
       <td>0.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>2653</th>
+      <th>2023</th>
       <td>Tb927.5.3680</td>
       <td>TbPIGH</td>
       <td>8</td>
       <td>95.1380</td>
       <td>0.0</td>
+      <td>7037.0</td>
     </tr>
   </tbody>
 </table>
@@ -13561,7 +13790,7 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#list(df.columns)</span>
@@ -13574,7 +13803,7 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#color palette</span>
@@ -13590,7 +13819,7 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tag</span> <span class="o">=</span> <span class="s1">&#39;iBAQ&#39;</span>
@@ -13613,7 +13842,7 @@ tot  876  entries removed
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[16]:</div>
 
 
 
@@ -13646,7 +13875,7 @@ tot  876  entries removed
   </thead>
   <tbody>
     <tr>
-      <th>155</th>
+      <th>0</th>
       <td>111320.0</td>
       <td>3.170400e+09</td>
       <td>22109000.0</td>
@@ -13655,7 +13884,7 @@ tot  876  entries removed
       <td>48395000.0</td>
     </tr>
     <tr>
-      <th>156</th>
+      <th>1</th>
       <td>0.0</td>
       <td>5.701500e+04</td>
       <td>117090.0</td>
@@ -13664,7 +13893,7 @@ tot  876  entries removed
       <td>0.0</td>
     </tr>
     <tr>
-      <th>157</th>
+      <th>2</th>
       <td>2315200.0</td>
       <td>2.823200e+07</td>
       <td>1669300.0</td>
@@ -13673,7 +13902,7 @@ tot  876  entries removed
       <td>7821200.0</td>
     </tr>
     <tr>
-      <th>158</th>
+      <th>3</th>
       <td>1434.6</td>
       <td>3.685800e+08</td>
       <td>38002000.0</td>
@@ -13682,7 +13911,7 @@ tot  876  entries removed
       <td>26151000.0</td>
     </tr>
     <tr>
-      <th>159</th>
+      <th>4</th>
       <td>267950.0</td>
       <td>1.534700e+06</td>
       <td>2145700.0</td>
@@ -13703,7 +13932,7 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">selection</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -13745,12 +13974,14 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">selection</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">selection</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Value Distribution&#39;</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log10 Intensity&#39;</span><span class="p">)</span>
@@ -13779,12 +14010,80 @@ tot  876  entries removed
 
 
 <div class="output_png output_subarea ">
-<img src="analysis_def_files/analysis_def_15_0.png"
+<img src="analysis_def_files/analysis_def_20_0.png"
 >
 </div>
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">normed_df</span> <span class="o">=</span> <span class="n">selection</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]]</span><span class="o">/</span><span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+
+<span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Control_1&#39;</span><span class="p">,</span><span class="s1">&#39;Control_2&#39;</span><span class="p">,</span><span class="s1">&#39;Control_3&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Control_1&#39;</span><span class="p">,</span><span class="s1">&#39;Control_2&#39;</span><span class="p">,</span><span class="s1">&#39;Control_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Control_1&#39;</span><span class="p">,</span><span class="s1">&#39;Control_2&#39;</span><span class="p">,</span><span class="s1">&#39;Control_3&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Control_1&#39;</span><span class="p">,</span><span class="s1">&#39;Control_2&#39;</span><span class="p">,</span><span class="s1">&#39;Control_3&#39;</span><span class="p">]]</span><span class="o">/</span><span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Control_1&#39;</span><span class="p">,</span><span class="s1">&#39;Control_2&#39;</span><span class="p">,</span><span class="s1">&#39;Control_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+
+
+<span class="n">fig</span><span class="p">,</span><span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">normed_df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;kde&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Value Distribution&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Log10 Intensity&#39;</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">normed_df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)),</span>
+            <span class="n">showfliers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">palette</span><span class="o">=</span><span class="n">palette</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Value Distribution&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Log10 Intensity&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TXT_PATH</span><span class="p">,</span> <span class="s1">&#39;value_distribution.png&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="analysis_def_files/analysis_def_21_0.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
 </div>
 </div>
 
@@ -13798,7 +14097,7 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">missingno</span> <span class="k">as</span> <span class="nn">msno</span>
@@ -13829,7 +14128,7 @@ tot  876  entries removed
 
 
 <div class="output_png output_subarea ">
-<img src="analysis_def_files/analysis_def_17_0.png"
+<img src="analysis_def_files/analysis_def_24_0.png"
 >
 </div>
 
@@ -13848,12 +14147,12 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bait_nan</span> <span class="o">=</span> <span class="n">selection</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">control_nan</span>  <span class="o">=</span> <span class="n">selection</span><span class="p">[[</span><span class="s1">&#39;Control_1&#39;</span><span class="p">,</span><span class="s1">&#39;Control_2&#39;</span><span class="p">,</span><span class="s1">&#39;Control_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">only_bait</span> <span class="o">=</span> <span class="n">selection</span><span class="p">[(</span><span class="n">bait_nan</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">control_nan</span><span class="o">==</span><span class="mi">3</span><span class="p">)]</span>
+<span class="n">only_bait</span> <span class="o">=</span> <span class="n">selection</span><span class="p">[(</span><span class="n">bait_nan</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">control_nan</span><span class="o">==</span><span class="mi">3</span><span class="p">)]</span>
 <span class="n">only_control</span> <span class="o">=</span> <span class="n">selection</span><span class="p">[(</span><span class="n">bait_nan</span><span class="o">==</span><span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">control_nan</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; Found only in Bait:&#39;</span><span class="p">,</span><span class="n">only_bait</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
       <span class="s1">&#39;Found only in Control:&#39;</span><span class="p">,</span><span class="n">only_control</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -13873,7 +14172,7 @@ tot  876  entries removed
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre> Found only in Bait: 154 
+<pre> Found only in Bait: 20 
  Found only in Control: 103
 </pre>
 </div>
@@ -13885,15 +14184,19 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">only_bait</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">selection</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#selection[[&#39;Bait_1&#39;,&#39;Bait_2&#39;,&#39;Bait_3&#39;]] = selection[[&#39;Bait_1&#39;,&#39;Bait_2&#39;,&#39;Bait_3&#39;]].replace(0,np.nan)</span>
+<span class="c1">#selection[[&#39;Bait_1&#39;,&#39;Bait_2&#39;,&#39;Bait_3&#39;]] = selection[[&#39;Bait_1&#39;,&#39;Bait_2&#39;,&#39;Bait_3&#39;]]/selection[[&#39;Bait_1&#39;,&#39;Bait_2&#39;,&#39;Bait_3&#39;]].median()</span>
+<span class="n">only_bait</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">to_look</span> <span class="o">=</span> <span class="n">only_bait</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
 <span class="n">temp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">to_look</span><span class="p">]</span>
-<span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">selection</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]])</span>
+<span class="n">temp</span><span class="o">=</span><span class="n">temp</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">normed_df</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]])</span>
 <span class="n">temp</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">[[</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">temp</span><span class="p">[[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">,</span><span class="s1">&#39;desc2&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">temp</span><span class="p">[</span><span class="s1">&#39;exp_rank&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">temp</span><span class="p">[</span><span class="s1">&#39;rank_filter&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">temp</span><span class="p">[</span><span class="s1">&#39;exp_rank&#39;</span><span class="p">])</span>
+<span class="n">temp</span><span class="p">[[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_1&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_2&#39;</span><span class="p">,</span><span class="s1">&#39;Bait_3&#39;</span><span class="p">,</span><span class="s1">&#39;desc2&#39;</span><span class="p">,</span><span class="s1">&#39;Score&#39;</span><span class="p">,</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">,</span><span class="s1">&#39;exp_rank&#39;</span><span class="p">,</span><span class="s1">&#39;rank_filter&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13906,7 +14209,7 @@ tot  876  entries removed
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[22]:</div>
 
 
 
@@ -13935,188 +14238,272 @@ tot  876  entries removed
       <th>Bait_2</th>
       <th>Bait_3</th>
       <th>desc2</th>
+      <th>Score</th>
+      <th>BSF_rank</th>
+      <th>exp_rank</th>
+      <th>rank_filter</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>360</th>
+      <th>145</th>
       <td>Tb11.v5.0765</td>
-      <td>1.473560e+08</td>
-      <td>54438000.0</td>
-      <td>215580000.0</td>
-      <td>172050000.0</td>
+      <td>406.619194</td>
+      <td>857.831705</td>
+      <td>119.147760</td>
+      <td>242.878116</td>
       <td>TbPIGA</td>
+      <td>266.3000</td>
+      <td>6473.5</td>
+      <td>1.0</td>
+      <td>12.660330</td>
     </tr>
     <tr>
-      <th>2653</th>
+      <th>2023</th>
       <td>Tb927.5.3680</td>
-      <td>8.474833e+07</td>
-      <td>30638000.0</td>
-      <td>148890000.0</td>
-      <td>74717000.0</td>
+      <td>223.519135</td>
+      <td>482.792310</td>
+      <td>82.289220</td>
+      <td>105.475875</td>
       <td>TbPIGH</td>
+      <td>95.1380</td>
+      <td>7037.0</td>
+      <td>2.0</td>
+      <td>11.780745</td>
     </tr>
     <tr>
-      <th>506</th>
+      <th>263</th>
       <td>Tb927.10.10110</td>
-      <td>6.820700e+07</td>
-      <td>17040000.0</td>
-      <td>141270000.0</td>
-      <td>46311000.0</td>
+      <td>137.323097</td>
+      <td>268.515600</td>
+      <td>78.077763</td>
+      <td>65.375928</td>
       <td>TbPIGP</td>
+      <td>137.2400</td>
+      <td>6184.0</td>
+      <td>3.0</td>
+      <td>11.009362</td>
     </tr>
     <tr>
-      <th>236</th>
+      <th>56</th>
       <td>Tb927.10.6140</td>
-      <td>1.489473e+07</td>
-      <td>3455300.0</td>
-      <td>39103000.0</td>
-      <td>2125900.0</td>
+      <td>26.353724</td>
+      <td>54.448471</td>
+      <td>21.611628</td>
+      <td>3.001073</td>
       <td>TbPIGC</td>
+      <td>99.5080</td>
+      <td>6796.5</td>
+      <td>4.0</td>
+      <td>10.730576</td>
     </tr>
     <tr>
-      <th>2229</th>
+      <th>1688</th>
       <td>Tb927.3.4570</td>
-      <td>1.145933e+07</td>
-      <td>1309800.0</td>
-      <td>31071000.0</td>
-      <td>1997200.0</td>
+      <td>13.543876</td>
+      <td>20.639773</td>
+      <td>17.172465</td>
+      <td>2.819391</td>
       <td>TbPIGQ</td>
+      <td>207.7200</td>
+      <td>5284.0</td>
+      <td>5.0</td>
+      <td>10.045487</td>
     </tr>
     <tr>
-      <th>2142</th>
+      <th>1618</th>
       <td>Tb927.3.2480</td>
-      <td>1.065313e+07</td>
-      <td>1290500.0</td>
-      <td>28956000.0</td>
-      <td>1712900.0</td>
+      <td>12.919078</td>
+      <td>20.335645</td>
+      <td>16.003537</td>
+      <td>2.418052</td>
       <td>Arv1-like family, putative</td>
+      <td>31.1090</td>
+      <td>NaN</td>
+      <td>6.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>442</th>
-      <td>Tb927.1.3110</td>
-      <td>4.495550e+06</td>
-      <td>0.0</td>
-      <td>2760800.0</td>
-      <td>6230300.0</td>
-      <td>soluble N-ethylmaleimide sensitive factor (NSF...</td>
-    </tr>
-    <tr>
-      <th>1959</th>
-      <td>Tb927.2.2460</td>
-      <td>2.442533e+06</td>
-      <td>143700.0</td>
-      <td>5014500.0</td>
-      <td>2169400.0</td>
-      <td>ubiquitin-conjugating enzyme E2, putative</td>
-    </tr>
-    <tr>
-      <th>2523</th>
+      <th>1911</th>
       <td>Tb927.4.780</td>
-      <td>2.098170e+06</td>
-      <td>822080.0</td>
-      <td>4960400.0</td>
-      <td>512030.0</td>
+      <td>5.472886</td>
+      <td>12.954302</td>
+      <td>2.741537</td>
+      <td>0.722818</td>
       <td>TbPIGY</td>
+      <td>4.0123</td>
+      <td>NaN</td>
+      <td>7.0</td>
+      <td>NaN</td>
     </tr>
     <tr>
-      <th>1002</th>
-      <td>Tb927.10.6710</td>
-      <td>2.092800e+06</td>
-      <td>0.0</td>
-      <td>2092800.0</td>
-      <td>0.0</td>
-      <td>hypothetical protein, conserved</td>
+      <th>1472</th>
+      <td>Tb927.2.2460</td>
+      <td>2.699445</td>
+      <td>2.264419</td>
+      <td>2.771437</td>
+      <td>3.062481</td>
+      <td>ubiquitin-conjugating enzyme E2, putative</td>
+      <td>7.7532</td>
+      <td>2537.0</td>
+      <td>8.0</td>
+      <td>8.308908</td>
     </tr>
     <tr>
-      <th>1668</th>
-      <td>Tb927.11.4550</td>
-      <td>1.659650e+06</td>
-      <td>0.0</td>
-      <td>2151200.0</td>
-      <td>1168100.0</td>
-      <td>Domain of unknown function (DUF4200), putative</td>
+      <th>1183</th>
+      <td>Tb927.11.3660</td>
+      <td>2.150475</td>
+      <td>3.658367</td>
+      <td>0.509255</td>
+      <td>2.283802</td>
+      <td>dynein light chain Tctex-type, putative</td>
+      <td>20.8370</td>
+      <td>1400.0</td>
+      <td>9.0</td>
+      <td>7.281286</td>
     </tr>
     <tr>
-      <th>1337</th>
-      <td>Tb927.11.13530</td>
-      <td>1.615600e+06</td>
-      <td>0.0</td>
-      <td>1615600.0</td>
-      <td>0.0</td>
-      <td>hypothetical protein, conserved</td>
-    </tr>
-    <tr>
-      <th>3438</th>
-      <td>Tb927.8.5380</td>
-      <td>1.556668e+06</td>
-      <td>92737.0</td>
-      <td>3020600.0</td>
-      <td>0.0</td>
-      <td>ubiquitin fold modifier protein, putative</td>
-    </tr>
-    <tr>
-      <th>3081</th>
+      <th>2359</th>
       <td>Tb927.7.3920</td>
-      <td>1.304207e+06</td>
-      <td>105120.0</td>
-      <td>3642700.0</td>
-      <td>164800.0</td>
+      <td>1.300795</td>
+      <td>1.656477</td>
+      <td>2.013264</td>
+      <td>0.232643</td>
       <td>hypothetical protein, conserved</td>
+      <td>25.5930</td>
+      <td>1274.0</td>
+      <td>10.0</td>
+      <td>6.993221</td>
     </tr>
     <tr>
-      <th>3455</th>
-      <td>Tb927.8.5740</td>
-      <td>1.241500e+06</td>
-      <td>0.0</td>
-      <td>1241500.0</td>
-      <td>0.0</td>
-      <td>proteasome 26S non-ATPase subunit 9, putative</td>
+      <th>1785</th>
+      <td>Tb927.4.1950</td>
+      <td>0.902981</td>
+      <td>1.405957</td>
+      <td>0.375306</td>
+      <td>0.927680</td>
+      <td>NADPH-dependent diflavin oxidoreductase 1</td>
+      <td>18.6310</td>
+      <td>2404.0</td>
+      <td>11.0</td>
+      <td>7.771790</td>
     </tr>
     <tr>
-      <th>580</th>
-      <td>Tb927.10.11990</td>
-      <td>1.224635e+06</td>
-      <td>0.0</td>
-      <td>1868300.0</td>
-      <td>580970.0</td>
-      <td>60S ribosome subunit biogenesis protein NIP7, ...</td>
+      <th>319</th>
+      <td>Tb927.10.11800</td>
+      <td>0.484993</td>
+      <td>0.148229</td>
+      <td>0.464321</td>
+      <td>0.842429</td>
+      <td>Axonemal inner arm dynein light chain, putative</td>
+      <td>32.2550</td>
+      <td>2172.0</td>
+      <td>12.0</td>
+      <td>7.499846</td>
     </tr>
     <tr>
-      <th>3601</th>
-      <td>Tb927.9.10880</td>
-      <td>1.167342e+06</td>
-      <td>83983.0</td>
-      <td>2250700.0</td>
-      <td>0.0</td>
+      <th>300</th>
+      <td>Tb927.10.11330</td>
+      <td>0.484437</td>
+      <td>0.218973</td>
+      <td>0.966038</td>
+      <td>0.268302</td>
+      <td>EF-hand domain pair, putative</td>
+      <td>7.4807</td>
+      <td>4066.0</td>
+      <td>13.0</td>
+      <td>8.288955</td>
+    </tr>
+    <tr>
+      <th>1130</th>
+      <td>Tb927.11.2570</td>
+      <td>0.468315</td>
+      <td>0.215821</td>
+      <td>0.695885</td>
+      <td>0.493238</td>
       <td>hypothetical protein, conserved</td>
+      <td>16.7660</td>
+      <td>1110.0</td>
+      <td>14.0</td>
+      <td>6.308989</td>
     </tr>
     <tr>
-      <th>3883</th>
-      <td>Tb927.9.8450</td>
-      <td>1.114000e+06</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1114000.0</td>
-      <td>UMP/CMP kinase</td>
+      <th>2674</th>
+      <td>Tb927.8.5860</td>
+      <td>0.418723</td>
+      <td>0.304680</td>
+      <td>0.262072</td>
+      <td>0.689418</td>
+      <td>mitochondrial ribosomal protein L17</td>
+      <td>16.6180</td>
+      <td>6058.0</td>
+      <td>15.0</td>
+      <td>8.657735</td>
     </tr>
     <tr>
-      <th>1321</th>
-      <td>Tb927.11.13210</td>
-      <td>1.090600e+06</td>
-      <td>0.0</td>
-      <td>1090600.0</td>
-      <td>0.0</td>
+      <th>211</th>
+      <td>Tb927.1.3030</td>
+      <td>0.366612</td>
+      <td>0.808147</td>
+      <td>0.145765</td>
+      <td>0.145925</td>
+      <td>KREL2</td>
+      <td>23.7530</td>
+      <td>3925.0</td>
+      <td>16.0</td>
+      <td>7.938477</td>
+    </tr>
+    <tr>
+      <th>1650</th>
+      <td>Tb927.3.3440</td>
+      <td>0.221607</td>
+      <td>0.305563</td>
+      <td>0.218565</td>
+      <td>0.140694</td>
+      <td>phytanoyl-CoA dioxygenase (PhyH), putative</td>
+      <td>7.1437</td>
+      <td>4490.0</td>
+      <td>17.0</td>
+      <td>8.045037</td>
+    </tr>
+    <tr>
+      <th>2343</th>
+      <td>Tb927.7.3580</td>
+      <td>0.195527</td>
+      <td>0.216908</td>
+      <td>0.148197</td>
+      <td>0.221477</td>
+      <td>Serine/threonine-protein kinase NEK11, putative</td>
+      <td>11.0860</td>
+      <td>5178.0</td>
+      <td>18.0</td>
+      <td>8.168254</td>
+    </tr>
+    <tr>
+      <th>868</th>
+      <td>Tb927.11.11380</td>
+      <td>0.191231</td>
+      <td>0.192342</td>
+      <td>0.157742</td>
+      <td>0.223609</td>
+      <td>SUMO-interacting motif-containing protein</td>
+      <td>21.8950</td>
+      <td>2266.0</td>
+      <td>19.0</td>
+      <td>6.898005</td>
+    </tr>
+    <tr>
+      <th>862</th>
+      <td>Tb927.11.11260</td>
+      <td>0.139055</td>
+      <td>0.093876</td>
+      <td>0.203034</td>
+      <td>0.120255</td>
       <td>hypothetical protein, conserved</td>
-    </tr>
-    <tr>
-      <th>636</th>
-      <td>Tb927.10.13290</td>
-      <td>1.058962e+06</td>
-      <td>32225.0</td>
-      <td>2085700.0</td>
-      <td>0.0</td>
-      <td>ethanolamine phosphotransferase (EPT)</td>
+      <td>9.3603</td>
+      <td>2454.0</td>
+      <td>20.0</td>
+      <td>6.938991</td>
     </tr>
   </tbody>
 </table>
@@ -14131,7 +14518,20 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;only_bait.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#print(selection.shape)</span>
@@ -14146,7 +14546,7 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">indata_prank</span><span class="o">=</span><span class="n">selection</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">]],</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
@@ -14166,7 +14566,7 @@ tot  876  entries removed
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[25]:</div>
 
 
 
@@ -14265,7 +14665,7 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">ProtRank</span>
@@ -14278,7 +14678,7 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ProtRank.rank_proteins??</span>
@@ -14291,15 +14691,16 @@ tot  876  entries removed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">what_to_compare</span> <span class="o">=</span> <span class="p">[[[</span><span class="s1">&#39;Control_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Bait_1&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Control_2&#39;</span><span class="p">,</span> <span class="s1">&#39;Bait_2&#39;</span> <span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Control_3&#39;</span><span class="p">,</span> <span class="s1">&#39;Bait_3&#39;</span><span class="p">,</span> <span class="p">]]]</span>
 <span class="n">ProtRank</span><span class="o">.</span><span class="n">data_stats</span><span class="p">(</span><span class="n">indata_prank</span><span class="p">,</span> <span class="n">what_to_compare</span> <span class="o">=</span> <span class="n">what_to_compare</span><span class="p">)</span>
 <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;bait_vs_control&#39;</span>
-<span class="n">significant_proteins</span> <span class="o">=</span> <span class="n">ProtRank</span><span class="o">.</span><span class="n">rank_proteins</span><span class="p">(</span><span class="n">indata_prank</span><span class="o">+</span><span class="n">indata_prank</span><span class="p">[</span><span class="n">indata_prank</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> 
-                                              <span class="n">what_to_compare</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span>
-                                              <span class="n">path_to</span><span class="o">=</span><span class="n">TXT_PATH</span><span class="p">,</span><span class="n">num_bootstrap_realizations</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">significant_proteins</span> <span class="o">=</span> <span class="n">ProtRank</span><span class="o">.</span><span class="n">rank_proteins</span><span class="p">(</span>
+    <span class="n">indata_prank</span><span class="o">+</span><span class="n">indata_prank</span><span class="p">[</span><span class="n">indata_prank</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> 
+    <span class="n">what_to_compare</span><span class="p">,</span> <span class="n">description</span><span class="p">,</span>
+    <span class="n">path_to</span><span class="o">=</span><span class="n">TXT_PATH</span><span class="p">,</span><span class="n">num_bootstrap_realizations</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14348,10 +14749,11 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">significant_proteins</span><span class="p">)][[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span><span class="s1">&#39;desc2&#39;</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">significant_proteins</span><span class="p">)][[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span>
+                                              <span class="s1">&#39;desc2&#39;</span><span class="p">]]</span>
 </pre></div>
 
     </div>
@@ -14364,7 +14766,7 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[21]:</div>
+    <div class="prompt output_prompt">Out[29]:</div>
 
 
 
@@ -14393,52 +14795,52 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
   </thead>
   <tbody>
     <tr>
-      <th>236</th>
+      <th>56</th>
       <td>Tb927.10.6140</td>
       <td>TbPIGC</td>
     </tr>
     <tr>
-      <th>360</th>
+      <th>145</th>
       <td>Tb11.v5.0765</td>
       <td>TbPIGA</td>
     </tr>
     <tr>
-      <th>506</th>
+      <th>263</th>
       <td>Tb927.10.10110</td>
       <td>TbPIGP</td>
     </tr>
     <tr>
-      <th>1204</th>
+      <th>842</th>
       <td>Tb927.11.10770</td>
       <td>VHS domain containing protein, putative</td>
     </tr>
     <tr>
-      <th>1615</th>
+      <th>1183</th>
       <td>Tb927.11.3660</td>
       <td>dynein light chain Tctex-type, putative</td>
     </tr>
     <tr>
-      <th>1959</th>
+      <th>1472</th>
       <td>Tb927.2.2460</td>
       <td>ubiquitin-conjugating enzyme E2, putative</td>
     </tr>
     <tr>
-      <th>2142</th>
+      <th>1618</th>
       <td>Tb927.3.2480</td>
       <td>Arv1-like family, putative</td>
     </tr>
     <tr>
-      <th>2229</th>
+      <th>1688</th>
       <td>Tb927.3.4570</td>
       <td>TbPIGQ</td>
     </tr>
     <tr>
-      <th>2523</th>
+      <th>1911</th>
       <td>Tb927.4.780</td>
       <td>TbPIGY</td>
     </tr>
     <tr>
-      <th>2653</th>
+      <th>2023</th>
       <td>Tb927.5.3680</td>
       <td>TbPIGH</td>
     </tr>
@@ -14455,20 +14857,7 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TXT_PATH</span><span class="p">,</span><span class="s1">&#39;prs-bait_vs_control.dat&#39;</span><span class="p">),</span>
@@ -14478,6 +14867,11 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 <span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;log_rank&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">])</span>
 <span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;srank&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="n">n</span><span class="o">*</span><span class="mi">1</span> <span class="k">if</span> <span class="n">a</span><span class="o">==</span><span class="s1">&#39;+&#39;</span> <span class="k">else</span> <span class="n">n</span><span class="o">*-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">n</span><span class="p">,</span><span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">],</span><span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;sign&#39;</span><span class="p">])]</span>
 <span class="n">temp_1</span><span class="o">=</span><span class="n">temp_1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span><span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="c1">#temp_1=temp_1.merge(aboundance_df,left_on=&#39;Gene_id&#39;,right_on=&#39;Gene ID&#39;,how=&#39;left&#39;)</span>
+<span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;exp_rank&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;rank&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;rank_filter&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;exp_rank&#39;</span><span class="p">])</span>
+<span class="n">temp_1</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">temp_1</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;all.txt&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14487,23 +14881,12 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#PTUT.make_vulcano??</span>
-</pre></div>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="c1">#plt.style.use(&#39;classic&#39;)</span>
 
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> 
                      <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
@@ -14517,21 +14900,24 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
              <span class="n">annot_index</span><span class="o">=</span><span class="n">_ids</span><span class="p">,</span>
              <span class="n">annot_names</span> <span class="o">=</span> <span class="n">_names</span><span class="p">,</span>
              <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Volcano&#39;</span><span class="p">,</span>
-             <span class="n">fc_limit</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
+             <span class="c1">#fc_limit=70,</span>
              <span class="n">fc_col</span><span class="o">=</span><span class="s1">&#39;srank&#39;</span><span class="p">,</span>
                   <span class="n">alpha_main</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-             <span class="n">point_size_selection</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-             <span class="n">point_size_all</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-            <span class="n">text_size</span><span class="o">=</span><span class="mi">12</span>
+             <span class="n">point_size_selection</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+             <span class="n">point_size_all</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">text_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>          
             <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PIGA interacting partners&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PIG-A interacting partners&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Rank&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;False Discovery Rate -log10&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Legend&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log10 FDR&#39;</span><span class="p">)</span>
+<span class="c1">#ax.legend(loc=&#39;upper center&#39;, bbox_to_anchor=(1.1, 0.9),</span>
+<span class="c1">#          title=&#39;Legend&#39;)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;volcano.svg&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14550,6 +14936,18 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>11
 11
+no selection
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>No handles with labels found to put in legend.
 </pre>
 </div>
 </div>
@@ -14562,7 +14960,7 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 
 
 <div class="output_png output_subarea ">
-<img src="analysis_def_files/analysis_def_30_1.png"
+<img src="analysis_def_files/analysis_def_36_2.png"
 >
 </div>
 
@@ -14574,7 +14972,345 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#ids</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[42]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gene_id</th>
+      <th>rank</th>
+      <th>FDR</th>
+      <th>sign</th>
+      <th>log_FDR</th>
+      <th>log_rank</th>
+      <th>srank</th>
+      <th>Protein IDs</th>
+      <th>Majority protein IDs</th>
+      <th>Peptide counts (all)</th>
+      <th>...</th>
+      <th>Best MS/MS</th>
+      <th>Oxidation (M) site IDs</th>
+      <th>Oxidation (M) site positions</th>
+      <th>unique_int</th>
+      <th>desc</th>
+      <th>Abundance_BSF_pro</th>
+      <th>BSF_rank</th>
+      <th>desc2</th>
+      <th>exp_rank</th>
+      <th>rank_filter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Tb11.v5.0765</td>
+      <td>661.404659</td>
+      <td>0.00000</td>
+      <td>+</td>
+      <td>2.000000</td>
+      <td>2.820467</td>
+      <td>661.404659</td>
+      <td>Tb11.v5.0765.1-p1;Tb927.2.1780:mRNA-p1</td>
+      <td>Tb11.v5.0765.1-p1;Tb927.2.1780:mRNA-p1</td>
+      <td>30;30</td>
+      <td>...</td>
+      <td>17142;34132;43402;47663;52262;52270;56071;6830...</td>
+      <td>523;524;525;526;527;528;529;530;531</td>
+      <td>58;66;80;87;195;257;264;269;382</td>
+      <td>30</td>
+      <td>N-acetylglucosaminyl-phosphatidylinositol bios...</td>
+      <td>6.102938</td>
+      <td>6473.5</td>
+      <td>TbPIGA</td>
+      <td>1.0</td>
+      <td>12.660330</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tb927.5.3680</td>
+      <td>441.432077</td>
+      <td>0.00000</td>
+      <td>+</td>
+      <td>2.000000</td>
+      <td>2.644864</td>
+      <td>441.432077</td>
+      <td>Tb927.5.3680:mRNA-p1</td>
+      <td>Tb927.5.3680:mRNA-p1</td>
+      <td>8</td>
+      <td>...</td>
+      <td>49117;54547;58901;77084;91538;102176;123154;13...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8</td>
+      <td>GPI-GlcNAc transferase complex, PIG-H componen...</td>
+      <td>5.683547</td>
+      <td>7037.0</td>
+      <td>TbPIGH</td>
+      <td>2.0</td>
+      <td>11.780745</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tb927.10.10110</td>
+      <td>341.436189</td>
+      <td>0.00000</td>
+      <td>+</td>
+      <td>2.000000</td>
+      <td>2.533310</td>
+      <td>341.436189</td>
+      <td>Tb927.10.10110:mRNA-p1</td>
+      <td>Tb927.10.10110:mRNA-p1</td>
+      <td>5</td>
+      <td>...</td>
+      <td>18405;56245;82986;106746;131048</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5</td>
+      <td>PIG-P, putative</td>
+      <td>6.245562</td>
+      <td>6184.0</td>
+      <td>TbPIGP</td>
+      <td>3.0</td>
+      <td>11.009362</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Tb927.10.6140</td>
+      <td>225.351104</td>
+      <td>0.00000</td>
+      <td>+</td>
+      <td>2.000000</td>
+      <td>2.352860</td>
+      <td>225.351104</td>
+      <td>Tb927.10.6140:mRNA-p1;Tb11.v5.0206.1-p1</td>
+      <td>Tb927.10.6140:mRNA-p1;Tb11.v5.0206.1-p1</td>
+      <td>7;7</td>
+      <td>...</td>
+      <td>23489;53438;53442;99475;109901;110010;162446</td>
+      <td>257</td>
+      <td>340</td>
+      <td>7</td>
+      <td>phosphatidylinositolN- acetylglucosaminyltrans...</td>
+      <td>5.932532</td>
+      <td>6796.5</td>
+      <td>TbPIGC</td>
+      <td>4.0</td>
+      <td>10.730576</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tb927.3.4570</td>
+      <td>191.344078</td>
+      <td>0.00200</td>
+      <td>+</td>
+      <td>1.920819</td>
+      <td>2.281815</td>
+      <td>191.344078</td>
+      <td>Tb927.3.4570:mRNA-p1</td>
+      <td>Tb927.3.4570:mRNA-p1</td>
+      <td>22</td>
+      <td>...</td>
+      <td>18067;25654;38235;42315;52675;76547;81769;9633...</td>
+      <td>3059;3060;3061;3062;3063;3064</td>
+      <td>85;173;194;207;716;721</td>
+      <td>22</td>
+      <td>N-acetylglucosamyl transferase component GPI1,...</td>
+      <td>6.640929</td>
+      <td>5284.0</td>
+      <td>TbPIGQ</td>
+      <td>5.0</td>
+      <td>10.045487</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Tb927.3.2480</td>
+      <td>172.718617</td>
+      <td>0.00200</td>
+      <td>+</td>
+      <td>1.920819</td>
+      <td>2.237339</td>
+      <td>172.718617</td>
+      <td>Tb927.3.2480:mRNA-p1</td>
+      <td>Tb927.3.2480:mRNA-p1</td>
+      <td>7</td>
+      <td>...</td>
+      <td>14339;46260;68923;80455;128822;138280;164206</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>Arv1-like family, putative</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Arv1-like family, putative</td>
+      <td>6.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Tb927.2.2460</td>
+      <td>107.118431</td>
+      <td>0.01143</td>
+      <td>+</td>
+      <td>1.668978</td>
+      <td>2.029864</td>
+      <td>107.118431</td>
+      <td>Tb927.2.2460:mRNA-p1</td>
+      <td>Tb927.2.2460:mRNA-p1</td>
+      <td>3</td>
+      <td>...</td>
+      <td>23712;119349;128498</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+      <td>ubiquitin-conjugating enzyme E2, putative</td>
+      <td>7.592215</td>
+      <td>2537.0</td>
+      <td>ubiquitin-conjugating enzyme E2, putative</td>
+      <td>7.0</td>
+      <td>8.501553</td>
+    </tr>
+  </tbody>
+</table>
+<p>7 rows × 122 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="c1">#plt.style.use(&#39;classic&#39;)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> 
+                     <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ids</span> <span class="o">=</span> <span class="n">temp_1</span><span class="p">[</span><span class="n">temp_1</span><span class="p">[</span><span class="s1">&#39;srank&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">30</span><span class="p">]</span>
+<span class="n">ids</span> <span class="o">=</span> <span class="n">ids</span><span class="p">[</span><span class="o">~</span><span class="n">ids</span><span class="p">[</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
+<span class="n">_ids</span> <span class="o">=</span> <span class="n">ids</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+<span class="n">_names</span> <span class="o">=</span> <span class="n">ids</span><span class="p">[</span><span class="s1">&#39;desc2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_ids</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_names</span><span class="p">))</span>
+
+<span class="n">PTUT</span><span class="o">.</span><span class="n">make_vulcano</span><span class="p">(</span><span class="n">temp_1</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;srank&#39;</span><span class="p">,</span> 
+                  <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">,</span> 
+             <span class="n">annot_index</span><span class="o">=</span><span class="n">_ids</span><span class="p">,</span>
+             <span class="n">annot_names</span> <span class="o">=</span> <span class="n">_names</span><span class="p">,</span>
+             <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Volcano&#39;</span><span class="p">,</span>
+             <span class="c1">#fc_limit=70,</span>
+             <span class="n">fc_col</span><span class="o">=</span><span class="s1">&#39;srank&#39;</span><span class="p">,</span>
+            <span class="n">alpha_main</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+             <span class="n">point_size_selection</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+             <span class="n">point_size_all</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">text_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>          
+            <span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PIG-A interacting partners&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Experiment&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;BSF cell&#39;</span><span class="p">)</span>
+<span class="c1">#ax.legend(loc=&#39;upper center&#39;, bbox_to_anchor=(1.1, 0.9),</span>
+<span class="c1">#          title=&#39;Legend&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;volcano2.svg&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>12
+12
+no selection
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>No handles with labels found to put in legend.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="analysis_def_files/analysis_def_38_2.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
@@ -14596,7 +15332,7 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
@@ -14613,7 +15349,7 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[30]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -14637,7 +15373,7 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp_1</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Dataset.csv&#39;</span><span class="p">)</span>
@@ -14650,7 +15386,7 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html_toc analysis_def.ipynb
@@ -14675,7 +15411,9 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 [NbConvertApp] Making directory analysis_def_files
 [NbConvertApp] Making directory analysis_def_files
 [NbConvertApp] Making directory analysis_def_files
-[NbConvertApp] Writing 343723 bytes to analysis_def.html
+[NbConvertApp] Making directory analysis_def_files
+[NbConvertApp] Making directory analysis_def_files
+[NbConvertApp] Writing 377874 bytes to analysis_def.html
 </pre>
 </div>
 </div>
