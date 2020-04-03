@@ -14961,6 +14961,203 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">temp_1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gene_id</th>
+      <th>rank</th>
+      <th>FDR</th>
+      <th>sign</th>
+      <th>log_FDR</th>
+      <th>log_rank</th>
+      <th>srank</th>
+      <th>Protein IDs</th>
+      <th>Majority protein IDs</th>
+      <th>Peptide counts (all)</th>
+      <th>...</th>
+      <th>Oxidation (M) site IDs</th>
+      <th>Oxidation (M) site positions</th>
+      <th>unique_int</th>
+      <th>desc</th>
+      <th>Abundance_BSF_pro</th>
+      <th>BSF_rank</th>
+      <th>desc2</th>
+      <th>exp_rank</th>
+      <th>rank_filter</th>
+      <th>BSF_rank2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Tb11.v5.0765</td>
+      <td>661.404659</td>
+      <td>0.000</td>
+      <td>+</td>
+      <td>2.000000</td>
+      <td>2.820467</td>
+      <td>661.404659</td>
+      <td>Tb11.v5.0765.1-p1;Tb927.2.1780:mRNA-p1</td>
+      <td>Tb11.v5.0765.1-p1;Tb927.2.1780:mRNA-p1</td>
+      <td>30;30</td>
+      <td>...</td>
+      <td>523;524;525;526;527;528;529;530;531</td>
+      <td>58;66;80;87;195;257;264;269;382</td>
+      <td>30</td>
+      <td>N-acetylglucosaminyl-phosphatidylinositol bios...</td>
+      <td>6.102938</td>
+      <td>6473.5</td>
+      <td>TbPIGA</td>
+      <td>1.0</td>
+      <td>12.660330</td>
+      <td>6473.5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tb927.5.3680</td>
+      <td>441.432077</td>
+      <td>0.000</td>
+      <td>+</td>
+      <td>2.000000</td>
+      <td>2.644864</td>
+      <td>441.432077</td>
+      <td>Tb927.5.3680:mRNA-p1</td>
+      <td>Tb927.5.3680:mRNA-p1</td>
+      <td>8</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8</td>
+      <td>GPI-GlcNAc transferase complex, PIG-H componen...</td>
+      <td>5.683547</td>
+      <td>7037.0</td>
+      <td>TbPIGH</td>
+      <td>2.0</td>
+      <td>11.780745</td>
+      <td>7037.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tb927.10.10110</td>
+      <td>341.436189</td>
+      <td>0.000</td>
+      <td>+</td>
+      <td>2.000000</td>
+      <td>2.533310</td>
+      <td>341.436189</td>
+      <td>Tb927.10.10110:mRNA-p1</td>
+      <td>Tb927.10.10110:mRNA-p1</td>
+      <td>5</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5</td>
+      <td>PIG-P, putative</td>
+      <td>6.245562</td>
+      <td>6184.0</td>
+      <td>TbPIGP</td>
+      <td>3.0</td>
+      <td>11.009362</td>
+      <td>6184.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Tb927.10.6140</td>
+      <td>225.351104</td>
+      <td>0.000</td>
+      <td>+</td>
+      <td>2.000000</td>
+      <td>2.352860</td>
+      <td>225.351104</td>
+      <td>Tb927.10.6140:mRNA-p1;Tb11.v5.0206.1-p1</td>
+      <td>Tb927.10.6140:mRNA-p1;Tb11.v5.0206.1-p1</td>
+      <td>7;7</td>
+      <td>...</td>
+      <td>257</td>
+      <td>340</td>
+      <td>7</td>
+      <td>phosphatidylinositolN- acetylglucosaminyltrans...</td>
+      <td>5.932532</td>
+      <td>6796.5</td>
+      <td>TbPIGC</td>
+      <td>4.0</td>
+      <td>10.730576</td>
+      <td>6796.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tb927.3.4570</td>
+      <td>191.344078</td>
+      <td>0.002</td>
+      <td>+</td>
+      <td>1.920819</td>
+      <td>2.281815</td>
+      <td>191.344078</td>
+      <td>Tb927.3.4570:mRNA-p1</td>
+      <td>Tb927.3.4570:mRNA-p1</td>
+      <td>22</td>
+      <td>...</td>
+      <td>3059;3060;3061;3062;3063;3064</td>
+      <td>85;173;194;207;716;721</td>
+      <td>22</td>
+      <td>N-acetylglucosamyl transferase component GPI1,...</td>
+      <td>6.640929</td>
+      <td>5284.0</td>
+      <td>TbPIGQ</td>
+      <td>5.0</td>
+      <td>10.045487</td>
+      <td>5284.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 123 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14970,7 +15167,7 @@ bait_vs_control: there are 10 proteins that have FDR 0.1 or less
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
@@ -15108,7 +15305,7 @@ no selection
 
 
 <div class="output_png output_subarea ">
-<img src="analysis_def_files/analysis_def_40_4.png"
+<img src="analysis_def_files/analysis_def_41_4.png"
 >
 </div>
 
@@ -15127,7 +15324,7 @@ no selection
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
@@ -15159,6 +15356,11 @@ no selection
 <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">trace1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">trace2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
+<span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="p">[</span><span class="s2">&quot;xaxis&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Experiment Rank&quot;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="p">[</span><span class="s2">&quot;xaxis2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Experiment Rank&quot;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="p">[</span><span class="s2">&quot;yaxis&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Log10 FDR&quot;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="p">[</span><span class="s2">&quot;yaxis2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;BSF Intensity Rank&quot;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s1">&#39;TbPIGA Interacting Partners&#39;</span><span class="p">)</span>
 <span class="c1">#fig.show()</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s2">&quot;PIGA.html&quot;</span><span class="p">)</span>
 </pre></div>
@@ -15170,7 +15372,7 @@ no selection
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
@@ -15187,7 +15389,7 @@ no selection
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[32]:</div>
+    <div class="prompt output_prompt">Out[33]:</div>
 
 
 
@@ -15255,12 +15457,34 @@ no selection
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Crosslinking">Crosslinking<a class="anchor-link" href="#Crosslinking">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html_toc analysis_def.ipynb
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">TXT_PATH</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;CL&#39;</span><span class="p">)</span>
+<span class="c1">#TXT_PATH=&#39;&#39;</span>
+<span class="n">dfc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TXT_PATH</span><span class="p">,</span> <span class="s1">&#39;proteinGroups.txt&#39;</span><span class="p">),</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">dfc</span> <span class="o">=</span> <span class="n">PTUT</span><span class="o">.</span><span class="n">clean_df</span><span class="p">(</span><span class="n">dfc</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">unique_pep_threshold</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dfc</span> <span class="o">=</span> <span class="n">PTUT</span><span class="o">.</span><span class="n">mod_df</span><span class="p">(</span><span class="n">dfc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfc</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">dfc</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;iBAQ 1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;iBAQ 2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="c1">#dfc[&#39;iBAQ 1&#39;] = dfc[&#39;iBAQ 1&#39;]/dfc[&#39;iBAQ 1&#39;].median()</span>
+<span class="c1">#dfc[&#39;iBAQ 2&#39;] = dfc[&#39;iBAQ 2&#39;]/dfc[&#39;iBAQ 2&#39;].median()</span>
+<span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;desc2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="n">KnownComponents</span><span class="p">[</span><span class="n">g</span><span class="p">]</span> <span class="k">if</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">KnownComponents</span>
+               <span class="k">else</span> <span class="n">d</span>  <span class="k">for</span> <span class="n">g</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">],</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;desc&#39;</span><span class="p">])]</span>
+
+
+<span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;logFC&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;iBAQ 1&#39;</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;iBAQ 2&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;iBAQ 2&#39;</span><span class="p">][</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;iBAQ 2&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
+<span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;logIn&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;Intensity&#39;</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -15277,16 +15501,103 @@ no selection
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[NbConvertApp] Converting notebook analysis_def.ipynb to html_toc
-[NbConvertApp] Support files will be in analysis_def_files/
-[NbConvertApp] Making directory analysis_def_files
-[NbConvertApp] Making directory analysis_def_files
-[NbConvertApp] Making directory analysis_def_files
-[NbConvertApp] Making directory analysis_def_files
-[NbConvertApp] Making directory analysis_def_files
-[NbConvertApp] Writing 391580 bytes to analysis_def.html
+<pre>starting from: (750, 58)
+removed  11 Protein Groups by: Only identified by site
+tot  11  entries removed
+---------------
+removed  7 Protein Groups by: Reverse
+tot  18  entries removed
+---------------
+removed  35 Protein Groups by: Potential contaminant
+tot  53  entries removed
+---------------
+Peptide counts (unique)
+nothing removed
+---------------
+(697, 61)
+0.0 70864.0
 </pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="mi">53439000</span><span class="o">/</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;iBAQ 1&#39;</span><span class="p">][</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;iBAQ 1&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>14.525393863780023</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">dfc</span><span class="p">[[</span><span class="s1">&#39;iBAQ 1&#39;</span><span class="p">,</span><span class="s1">&#39;iBAQ 2&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x120e4e370&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="analysis_def_files/analysis_def_50_1.png"
+>
+</div>
+
 </div>
 
 </div>
@@ -15298,14 +15609,454 @@ no selection
 <div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>git add analysis_def*
-<span class="o">!</span>git add PIGA.html
-<span class="o">!</span>git add utilities.py
-<span class="o">!</span>git add ProtRank.py
-<span class="o">!</span>git add aboundance_bsf.csv
-<span class="o">!</span>git add -u
-<span class="o">!</span>git commit -m <span class="s1">&#39;add files local&#39;</span>
-<span class="o">!</span>git push -u origin master
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfc</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="s1">&#39;logFC&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[[</span><span class="s1">&#39;Intensity 1&#39;</span><span class="p">,</span><span class="s1">&#39;Intensity 2&#39;</span><span class="p">,</span>
+                                    <span class="s1">&#39;logFC&#39;</span><span class="p">,</span><span class="s1">&#39;desc2&#39;</span><span class="p">,</span><span class="s1">&#39;Score&#39;</span><span class="p">,</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[39]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intensity 1</th>
+      <th>Intensity 2</th>
+      <th>logFC</th>
+      <th>desc2</th>
+      <th>Score</th>
+      <th>Gene_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>93</th>
+      <td>53439000</td>
+      <td>0</td>
+      <td>11.287483</td>
+      <td>TbPIGA</td>
+      <td>5.48140</td>
+      <td>Tb11.v5.0765</td>
+    </tr>
+    <tr>
+      <th>520</th>
+      <td>8986100</td>
+      <td>0</td>
+      <td>8.715332</td>
+      <td>short-chain dehydrogenase, putative</td>
+      <td>3.23770</td>
+      <td>Tb927.5.1210</td>
+    </tr>
+    <tr>
+      <th>714</th>
+      <td>16507000</td>
+      <td>0</td>
+      <td>7.376341</td>
+      <td>hypothetical protein, conserved</td>
+      <td>5.66980</td>
+      <td>Tb927.9.14280</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>1886100</td>
+      <td>0</td>
+      <td>6.965601</td>
+      <td>TbPIGC</td>
+      <td>0.65019</td>
+      <td>Tb927.10.6140</td>
+    </tr>
+    <tr>
+      <th>461</th>
+      <td>3657300</td>
+      <td>0</td>
+      <td>6.551725</td>
+      <td>TbPIGQ</td>
+      <td>2.62630</td>
+      <td>Tb927.3.4570</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>1683600</td>
+      <td>0</td>
+      <td>6.299193</td>
+      <td>DPM1</td>
+      <td>1.40780</td>
+      <td>Tb927.10.4610</td>
+    </tr>
+    <tr>
+      <th>541</th>
+      <td>1902600</td>
+      <td>0</td>
+      <td>6.103638</td>
+      <td>Variant Surface Glycoprotein, putative</td>
+      <td>0.55112</td>
+      <td>Tb927.5.5420</td>
+    </tr>
+    <tr>
+      <th>480</th>
+      <td>1940600</td>
+      <td>0</td>
+      <td>6.006663</td>
+      <td>NAD dependent epimerase/dehydratase family, pu...</td>
+      <td>1.37500</td>
+      <td>Tb927.4.1540</td>
+    </tr>
+    <tr>
+      <th>535</th>
+      <td>3140900</td>
+      <td>0</td>
+      <td>5.701340</td>
+      <td>ATP-dependent DEAD/H RNA helicase, putative</td>
+      <td>3.89630</td>
+      <td>Tb927.5.3600</td>
+    </tr>
+    <tr>
+      <th>516</th>
+      <td>2524000</td>
+      <td>0</td>
+      <td>5.648872</td>
+      <td>PQQ-like domain/Protein of unknown function (D...</td>
+      <td>1.07720</td>
+      <td>Tb927.4.590</td>
+    </tr>
+    <tr>
+      <th>643</th>
+      <td>1943500</td>
+      <td>0</td>
+      <td>5.549376</td>
+      <td>hypothetical protein, conserved</td>
+      <td>4.64600</td>
+      <td>Tb927.8.1950</td>
+    </tr>
+    <tr>
+      <th>476</th>
+      <td>2850100</td>
+      <td>0</td>
+      <td>5.502268</td>
+      <td>peroxisome biogenesis factor 1, putative</td>
+      <td>2.32340</td>
+      <td>Tb927.4.1250</td>
+    </tr>
+    <tr>
+      <th>604</th>
+      <td>2000900</td>
+      <td>0</td>
+      <td>5.465821</td>
+      <td>hypothetical protein, conserved</td>
+      <td>1.24870</td>
+      <td>Tb927.7.5290</td>
+    </tr>
+    <tr>
+      <th>160</th>
+      <td>543440</td>
+      <td>0</td>
+      <td>5.054861</td>
+      <td>hypoxanthine-guanine phosphoribosyltransferase...</td>
+      <td>0.72056</td>
+      <td>Tb927.10.1390</td>
+    </tr>
+    <tr>
+      <th>728</th>
+      <td>1340700</td>
+      <td>0</td>
+      <td>4.810187</td>
+      <td>fatty acyl CoA syntetase 1</td>
+      <td>0.91923</td>
+      <td>Tb927.9.4190</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>378820</td>
+      <td>0</td>
+      <td>4.649718</td>
+      <td>Ras-related protein Rab5A</td>
+      <td>0.53076</td>
+      <td>Tb927.10.12960</td>
+    </tr>
+    <tr>
+      <th>108</th>
+      <td>934190</td>
+      <td>0</td>
+      <td>4.449427</td>
+      <td>Polyadenylation mediator complex protein PAMC1...</td>
+      <td>1.35720</td>
+      <td>Tb927.1.1730</td>
+    </tr>
+    <tr>
+      <th>199</th>
+      <td>1244800</td>
+      <td>0</td>
+      <td>4.427523</td>
+      <td>hypothetical protein, conserved</td>
+      <td>1.17490</td>
+      <td>Tb927.10.3780</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>667480</td>
+      <td>0</td>
+      <td>4.408041</td>
+      <td>enolase</td>
+      <td>0.48471</td>
+      <td>Tb927.10.2890</td>
+    </tr>
+    <tr>
+      <th>611</th>
+      <td>446160</td>
+      <td>0</td>
+      <td>4.383298</td>
+      <td>TPR repeat, putative</td>
+      <td>0.62795</td>
+      <td>Tb927.7.6260</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#dfc.columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfc</span><span class="p">[</span><span class="n">dfc</span><span class="o">.</span><span class="n">Gene_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">KnownComponents</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+   <span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;logFC&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[[</span><span class="s1">&#39;Intensity 1&#39;</span><span class="p">,</span><span class="s1">&#39;Intensity 2&#39;</span><span class="p">,</span><span class="s1">&#39;logIn&#39;</span><span class="p">,</span>
+                                           <span class="s1">&#39;logFC&#39;</span><span class="p">,</span><span class="s1">&#39;desc2&#39;</span><span class="p">,</span><span class="s1">&#39;Score&#39;</span><span class="p">,</span><span class="s1">&#39;Peptide counts (unique)&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[41]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Intensity 1</th>
+      <th>Intensity 2</th>
+      <th>logIn</th>
+      <th>logFC</th>
+      <th>desc2</th>
+      <th>Score</th>
+      <th>Peptide counts (unique)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>93</th>
+      <td>53439000</td>
+      <td>0</td>
+      <td>7.727858</td>
+      <td>11.287483</td>
+      <td>TbPIGA</td>
+      <td>5.48140</td>
+      <td>6;6</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>1886100</td>
+      <td>0</td>
+      <td>6.275565</td>
+      <td>6.965601</td>
+      <td>TbPIGC</td>
+      <td>0.65019</td>
+      <td>2;2</td>
+    </tr>
+    <tr>
+      <th>461</th>
+      <td>3657300</td>
+      <td>0</td>
+      <td>6.563161</td>
+      <td>6.551725</td>
+      <td>TbPIGQ</td>
+      <td>2.62630</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>207</th>
+      <td>1683600</td>
+      <td>0</td>
+      <td>6.226239</td>
+      <td>6.299193</td>
+      <td>DPM1</td>
+      <td>1.40780</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">aboundance_df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;aboundance_bsf.csv&#39;</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">aboundance_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">aboundance_df</span><span class="p">[</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">aboundance_df</span><span class="p">[</span><span class="s1">&#39;Abundance_BSF_pro&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">dfc</span><span class="o">=</span><span class="n">dfc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">aboundance_df</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Gene_id&#39;</span><span class="p">,</span><span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Gene ID&#39;</span><span class="p">,</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;BSF_rank2&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;BSF_rank&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+<span class="c1">#plt.style.use(&#39;classic&#39;)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> 
+                     <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ids</span> <span class="o">=</span> <span class="n">dfc</span><span class="p">[</span><span class="n">dfc</span><span class="p">[</span><span class="s1">&#39;logFC&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">6</span><span class="p">]</span>
+<span class="n">_ids</span> <span class="o">=</span> <span class="n">ids</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+<span class="n">_names</span> <span class="o">=</span> <span class="n">ids</span><span class="p">[</span><span class="s1">&#39;desc2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_ids</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_names</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">PTUT</span><span class="o">.</span><span class="n">make_vulcano</span><span class="p">(</span><span class="n">dfc</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;logFC&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;logIn&#39;</span><span class="p">,</span> 
+             <span class="n">annot_index</span><span class="o">=</span><span class="n">_ids</span><span class="p">,</span>
+             <span class="n">annot_names</span> <span class="o">=</span> <span class="n">_names</span><span class="p">,</span>
+             <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="c1">#fc_limit=70,</span>
+             <span class="n">fc_col</span><span class="o">=</span><span class="s1">&#39;srank&#39;</span><span class="p">,</span>
+                  <span class="n">alpha_main</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+             <span class="n">point_size_selection</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+             <span class="n">point_size_all</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">text_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>          
+            <span class="p">)</span>
+
+
+<span class="c1">#ax.set_title(&#39;PIG-A interacting partners&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Experiment FC&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Log10 Intensity&#39;</span><span class="p">)</span>
+<span class="c1">#ax.legend(loc=&#39;upper center&#39;, bbox_to_anchor=(1.1, 0.9),</span>
+<span class="c1">#          title=&#39;Legend&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;A)&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> 
+               <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+               <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+
+
+<span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">PTUT</span><span class="o">.</span><span class="n">make_vulcano</span><span class="p">(</span><span class="n">dfc</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;logFC&#39;</span><span class="p">,</span> 
+                  <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BSF_rank2&#39;</span><span class="p">,</span> 
+             <span class="n">annot_index</span><span class="o">=</span><span class="n">_ids</span><span class="p">,</span>
+             <span class="n">annot_names</span> <span class="o">=</span> <span class="n">_names</span><span class="p">,</span>
+             <span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+             <span class="c1">#fc_limit=70,</span>
+             <span class="n">fc_col</span><span class="o">=</span><span class="s1">&#39;srank&#39;</span><span class="p">,</span>
+            <span class="n">alpha_main</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+             <span class="n">point_size_selection</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+             <span class="n">point_size_all</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">text_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>          
+            <span class="p">)</span>
+
+<span class="c1">#ax.set_title(&#39;PIG-A interacting partners&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Experiment FC&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;BSF Intensity Rank&#39;</span><span class="p">)</span>
+<span class="c1">#ax.legend(loc=&#39;upper center&#39;, bbox_to_anchor=(1.1, 0.9),</span>
+<span class="c1">#          title=&#39;Legend&#39;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">set_size</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;TbPIGA Interacting Partners&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Fig3.svg&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Fig3.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -15322,34 +16073,210 @@ no selection
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[master 2861dbb] add files local
- Committer: Michele Tinti &lt;mtinti@ls29490.local&gt;
-Your name and email address were configured automatically based
-on your username and hostname. Please check that they are accurate.
-You can suppress this message by setting them explicitly:
-
-    git config --global user.name &#34;Your Name&#34;
-    git config --global user.email you@example.com
-
-After doing this, you may fix the identity used for this commit with:
-
-    git commit --amend --reset-author
-
- 5 files changed, 649 insertions(+), 611 deletions(-)
- rewrite analysis_def_files/analysis_def_9_2.png (99%)
-Counting objects: 8, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (8/8), done.
-Writing objects: 100% (8/8), 121.24 KiB | 0 bytes/s, done.
-Total 8 (delta 6), reused 0 (delta 0)
-remote: Resolving deltas: 100% (6/6), completed with 6 local objects.
-To https://github.com/mtinti/PIG-A.git
-   2318488..2861dbb  master -&gt; master
-Branch master set up to track remote branch master from origin.
+<pre>8
+8
+no selection
 </pre>
 </div>
 </div>
 
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>No handles with labels found to put in legend.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>no selection
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>No handles with labels found to put in legend.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="analysis_def_files/analysis_def_55_4.png"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
+
+
+
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dfc</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;logFC&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;logIn&#39;</span><span class="p">,</span> <span class="c1">#color=&quot;log_FDR&quot;,</span>
+                 <span class="c1">#title=&#39;PIGA interacting partners&#39;,</span>
+                 <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+                 <span class="n">hover_name</span><span class="o">=</span><span class="s2">&quot;Gene_id&quot;</span><span class="p">,</span> <span class="n">hover_data</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;desc2&quot;</span><span class="p">],</span>
+                 <span class="c1">#color_continuous_scale=&#39;Bluered&#39;,#px.colors.sequential.Viridis,</span>
+                <span class="p">)</span>
+
+<span class="n">fig1</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="c1">#title=&quot;Plot Title&quot;,</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;logFC&quot;</span><span class="p">,</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;logIntensity&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+
+<span class="n">fig2</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dfc</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;logFC&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;BSF_rank2&#39;</span><span class="p">,</span> <span class="c1">#color=&quot;log_FDR&quot;,</span>
+                 <span class="c1">#title=&#39;PIGA interacting partners&#39;,</span>
+                 <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+                 <span class="n">hover_name</span><span class="o">=</span><span class="s2">&quot;Gene_id&quot;</span><span class="p">,</span> <span class="n">hover_data</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;desc2&quot;</span><span class="p">],</span>
+                 <span class="c1">#color_continuous_scale=&#39;Bluered&#39;,#px.colors.sequential.Viridis,</span>
+                <span class="p">)</span>
+
+
+
+<span class="n">trace1</span> <span class="o">=</span> <span class="n">fig1</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">trace2</span> <span class="o">=</span> <span class="n">fig2</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shared_xaxes</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">shared_yaxes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">trace1</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">trace2</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="p">[</span><span class="s2">&quot;xaxis&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Log2 Fold Change&quot;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="p">[</span><span class="s2">&quot;xaxis2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Log2 Fold Change&quot;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="p">[</span><span class="s2">&quot;yaxis&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Log10 Intensity&quot;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">layout</span><span class="p">[</span><span class="s2">&quot;yaxis2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Log10 Intensity&quot;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s1">&#39;TbPIGA Interacting Partners&#39;</span><span class="p">)</span>
+<span class="c1">#fig.show()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="s2">&quot;PIGAcl.html&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#??fig.add_trace</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s2">&quot;PIGAcl.html&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[46]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+<iframe
+    width="1000"
+    height="600"
+    src="PIGAcl.html"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dfc</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Dataset2.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert --to html_toc analysis_def.ipynb
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>git add -u
+<span class="o">!</span>git commit -m <span class="s1">&#39;add files local&#39;</span>
+<span class="o">!</span>git push -u origin master
+</pre></div>
+
+    </div>
 </div>
 </div>
 
