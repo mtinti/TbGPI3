@@ -5,7 +5,7 @@
 [![DOI](https://zenodo.org/badge/319365594.svg)](https://zenodo.org/badge/latestdoi/319365594)
 
 
-# Identification of UDP-GlcNAc : PI •1-6 GlcNAc-transferase subunits by immunoprecipitation of TbGPI3-3Myc from BSF T. brucei digitonin lysates 
+# Identification of UDP-GlcNAc : PI $\alpha$1-6 GlcNAc-transferase subunits by immunoprecipitation of TbGPI3-3Myc from BSF T. brucei digitonin lysates 
 
 ## Affiliation
     Zhe Ji, Michele Tinti and Michael A.J. Ferguson
